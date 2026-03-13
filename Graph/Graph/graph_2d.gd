@@ -1,6 +1,10 @@
 @tool
 class_name Graph2D extends Graph
 
+func generate_graph() -> void:
+	# do stuff
+	pass
+
 func bake_graph() -> void:
 	var actual_nodes : Array[Node2D]
 	var start_node : Node2D
@@ -51,19 +55,20 @@ func bake_graph() -> void:
 			start_node.vertex = start_vertex
 			start_node.add_child(start_vertex)
 			start_vertex.owner = get_tree().edited_scene_root
-			add(start_vertex)
+			vertices.append(start_vertex)
 			# telling editor to update this node so data is saved to scene
 			EditorInterface.edit_node(start_vertex)
-			EditorInterface.edit_node(self)
+			#EditorInterface.edit_node(self)
+		
 		if end_vertex == null:
 			end_vertex = Vertex2D.new().with_data(end_node, end_node.name)
 			end_node.vertex = end_vertex
 			end_node.add_child(end_vertex)
 			end_vertex.owner = get_tree().edited_scene_root
-			add(end_vertex)
+			vertices.append(end_vertex)
 			# telling editor to update this node so data is saved to scene
 			EditorInterface.edit_node(end_vertex)
-			EditorInterface.edit_node(self)
+			#EditorInterface.edit_node(self)
 			
 		
 		# error handling: if connection already exists, don't make another
@@ -71,11 +76,12 @@ func bake_graph() -> void:
 			continue
 		
 		# adding edge IFF one doesn't exist already
-		new_edge = Edge2D.new().with_data(start_vertex, end_vertex, edge_data.weight, str(id))
+		new_edge = Edge2D.new().with_data(start_vertex, end_vertex, edge_data.weight, str(id)) as Edge2D
 		id += 1
-		start_vertex.add_edge(new_edge)
-		end_vertex.add_edge(new_edge)
-		add_edge(new_edge)
+		start_vertex.edges.append(new_edge as Edge)
+		end_vertex.edges.append(new_edge as Edge)
+		#vertices.append(new_edge)
+		edges.append(new_edge)
 		edge_container.add_child(new_edge)
 		new_edge.owner = get_tree().edited_scene_root
 		
@@ -84,7 +90,7 @@ func bake_graph() -> void:
 		EditorInterface.edit_node(end_vertex)
 		EditorInterface.edit_node(new_edge)
 		EditorInterface.edit_node(new_edge.center_marker)
-		EditorInterface.edit_node(new_edge.interaction_handler)
+		#EditorInterface.edit_node(new_edge.interaction_handler)
 		EditorInterface.edit_node(self)
 	
 	
@@ -94,7 +100,7 @@ func clear_graph():
 	# free all edges
 	for edge in edge_container.get_children():
 		edge.call_deferred('queue_free')
-		
+	
 	# wait for all edges to actually be freed
 	if !edges.is_empty():
 		await edges[0].tree_exited

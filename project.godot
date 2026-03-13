@@ -17,7 +17,9 @@ config/icon="uid://vgfi6jmk171l"
 [file_customization]
 
 folder_colors={
-"res://Assets/": "purple"
+"res://Assets/": "purple",
+"res://Graph/": "teal",
+"res://TestEnvironment/": "orange"
 }
 
 [physics]

@@ -13,6 +13,7 @@ func _ready() -> void:
 	if !Engine.is_editor_hint():
 		clickable_area.connect("input_event", _on_input_event)
 
+
 ## this function is needed to actually initialize the node bc if the data is set up in the editor while
 ## the game isn't running the scene and then saved to the scene with the data set, the game will instance the node & look
 ## for init variables if _init has possible parameters (even if the params are optional)
@@ -38,9 +39,9 @@ func draw_connection() -> void:
 	for vertex in vertices:
 		# grab a start position first, then grab the end position
 		if start == null:
-			start = vertex.get_actual_node()
+			start = vertex.actual_node
 		else:
-			end = vertex.get_actual_node()
+			end = vertex.actual_node
 	
 	
 	#region setting up clickable area

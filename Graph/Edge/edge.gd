@@ -10,14 +10,11 @@ class_name Edge extends Node
 func _init() -> void: pass
 
 func with_data(vertex1 : Vertex, vertex2 : Vertex, edge_weight : float, id : String) -> Edge:
-	name = "Hallway" + id
+	name = "Edge" + id
 	vertices.append(vertex1)
 	vertices.append(vertex2)
 	weight = edge_weight
 	return self
-
-func get_weight() -> float: return weight ## Returns the cost of traversing this edge
-func get_vertices() -> Array[Vertex]: return vertices ## Returns the connected [Vertex] objects
 
 func toggle_enable_state():
 	match disabled:

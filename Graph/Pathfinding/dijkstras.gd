@@ -1,5 +1,5 @@
 class_name Djikstras extends PathFinder
-## Implementation of the [Algorithm] class to find the shortest path between nodes
+## Implementation of the [PathFinder] class to find the shortest path between nodes
 
 var queue : Array[Vertex]
 var vertices : Array[Vertex]
@@ -9,18 +9,18 @@ func find_path(start : Vertex, target : Vertex, graph : Graph) -> Array[Vertex]:
 	if start == null || target == null:
 		printerr(self, ": Cannot find path between invalid vertices")
 	queue.clear()
-	vertices = graph.get_vertices()
+	vertices = graph.vertices
 	
 	# set visited to false & distance to infinity for each vertex
 	for vertex in vertices:
-		vertex.set_visited(false)
-		vertex.set_dist(INF)
-		vertex.set_previous(null)
+		vertex.visited = (false)
+		vertex.dist = (INF)
+		vertex.previous = (null)
 	
 	# set up the start vertex
-	start.set_dist(0.0)
+	start.dist = (0.0)
 	
-	queue.push_back(start)
+	queue.append(start)
 	
 	# set up vars to be reused in the while loop
 	var con_dict : Dictionary[Edge, Vertex]
@@ -29,7 +29,7 @@ func find_path(start : Vertex, target : Vertex, graph : Graph) -> Array[Vertex]:
 	while !queue.is_empty():
 		# grab next node & set to be visited
 		curr_vertex = queue.pop_front()
-		curr_vertex.set_visited(true)
+		curr_vertex.visited = (true)
 		
 		# grab new connections
 		con_dict = curr_vertex.get_connection_dict()
@@ -38,13 +38,13 @@ func find_path(start : Vertex, target : Vertex, graph : Graph) -> Array[Vertex]:
 		for edge in curr_vertex.get_edges():
 			connected_vertex = con_dict.get(edge)
 			# checking if we found a new, shorter route
-			if connected_vertex.get_dist() > curr_vertex.get_dist() + edge.get_weight():
-				connected_vertex.set_dist(curr_vertex.get_dist() + edge.get_weight())
-				connected_vertex.set_previous(curr_vertex)
+			if connected_vertex.dist > curr_vertex.dist + edge.weight:
+				connected_vertex.dist = (curr_vertex.dist + edge.weight)
+				connected_vertex.previous = (curr_vertex)
 			
 			# pushing connected vertex to the queue if we haven't visited it yet
-			if !connected_vertex.get_visited():
-				queue.push_back(connected_vertex)
+			if !connected_vertex.visited:
+				queue.append(connected_vertex)
 				
 			# break if we found the target node, this needs to be last so the target vertex
 			# has a previous value
@@ -58,6 +58,6 @@ func find_path(start : Vertex, target : Vertex, graph : Graph) -> Array[Vertex]:
 		start.previous = start
 		while curr_vertex != start:
 			path.append(curr_vertex)
-			curr_vertex = curr_vertex.get_previous()
+			curr_vertex = curr_vertex.previous
 	
 	return path
