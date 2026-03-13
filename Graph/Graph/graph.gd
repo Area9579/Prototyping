@@ -1,9 +1,9 @@
-@tool
+
 @abstract class_name Graph extends Node
 ## Abstract class for structure of [Vertex] and [Edge] nodes
 
-@export_tool_button("Bake graph", "Callable") var bake = create_new_graph
-@export_tool_button("Clear graph", "Callable") var clear = clear_graph
+#@export_tool_button("Bake graph", "Callable") var bake = create_new_graph
+#@export_tool_button("Clear graph", "Callable") var clear = clear_graph
 
 @export_category("Required properties")
 @export var actual_node_container : Node
@@ -16,6 +16,7 @@
 
 @abstract func bake_graph() -> void
 @abstract func clear_graph()
+@abstract func generate_graph()
 
 func create_new_graph():
 	# clear graph and wait for all nodes to be freed

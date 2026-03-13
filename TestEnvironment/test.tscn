@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://l1o5dhpbjnrn" path="res://TestEnvironment/actual_node.gd" id="4_6guek"]
 [ext_resource type="Script" uid="uid://bo5q8klo548bp" path="res://Graph/Vertex/vertex_2d.gd" id="5_dwpg7"]
 [ext_resource type="Script" uid="uid://f2dcttg2rttb" path="res://Graph/Edge/edge_2d.gd" id="6_6yedn"]
+[ext_resource type="Script" uid="uid://brlgcwkoaqcj5" path="res://Graph/Graph/GraphBaker/graph_bake_tool.gd" id="7_6guek"]
 
 [sub_resource type="Resource" id="Resource_8e4j7"]
 script = ExtResource("2_dwpg7")
@@ -39,6 +40,15 @@ metadata/_custom_type_script = "uid://dr12d01rgm03o"
 
 [node name="Test" type="Node2D" unique_id=364527199]
 
+[node name="GraphBakeTool" type="Node" parent="." unique_id=1065777842 node_paths=PackedStringArray("actual_node_container", "edge_container", "graph")]
+script = ExtResource("7_6guek")
+actual_node_container = NodePath("../ActualNodeContainer")
+edge_container = NodePath("../EdgeContainer")
+adjacency_list = Array[ExtResource("2_dwpg7")]([SubResource("Resource_8e4j7"), SubResource("Resource_re1c4"), SubResource("Resource_6s5i7"), SubResource("Resource_nq6t0"), SubResource("Resource_el14s")])
+graph = NodePath("../Graph2D")
+"Visible Edges" = true
+metadata/_custom_type_script = "uid://brlgcwkoaqcj5"
+
 [node name="Graph2D" type="Node" parent="." unique_id=524917026 node_paths=PackedStringArray("actual_node_container", "edge_container", "vertices", "edges")]
 script = ExtResource("1_h6kip")
 actual_node_container = NodePath("../ActualNodeContainer")
@@ -51,7 +61,7 @@ metadata/_custom_type_script = "uid://chsm4bt4jhrqp"
 [node name="ActualNodeContainer" type="Node2D" parent="." unique_id=1292449016]
 
 [node name="Node1" type="Area2D" parent="ActualNodeContainer" unique_id=1312287293 node_paths=PackedStringArray("vertex", "padding")]
-position = Vector2(60, 38)
+position = Vector2(74, 104)
 script = ExtResource("4_6guek")
 vertex = NodePath("Node1")
 padding = NodePath("Padding")
@@ -64,7 +74,7 @@ polygon = PackedVector2Array(-10.810791, -83.7838, 75.67566, 2.7026978, -10.8107
 [node name="Sprite2D" type="Sprite2D" parent="ActualNodeContainer/Node1" unique_id=770013096]
 texture = ExtResource("3_6yedn")
 
-[node name="Node1" type="Node" parent="ActualNodeContainer/Node1" unique_id=1180711760 node_paths=PackedStringArray("actual_node", "edges")]
+[node name="Node1" type="Node" parent="ActualNodeContainer/Node1" unique_id=1061960810 node_paths=PackedStringArray("actual_node", "edges")]
 script = ExtResource("5_dwpg7")
 actual_node = NodePath("..")
 edges = [NodePath("../../../EdgeContainer/Edge0")]
@@ -83,7 +93,7 @@ polygon = PackedVector2Array(-10.810791, -83.7838, 75.67566, 2.7026978, -10.8107
 [node name="Sprite2D" type="Sprite2D" parent="ActualNodeContainer/Node2" unique_id=2086875720]
 texture = ExtResource("3_6yedn")
 
-[node name="Node2" type="Node" parent="ActualNodeContainer/Node2" unique_id=1012648164 node_paths=PackedStringArray("actual_node", "edges")]
+[node name="Node2" type="Node" parent="ActualNodeContainer/Node2" unique_id=1726004642 node_paths=PackedStringArray("actual_node", "edges")]
 script = ExtResource("5_dwpg7")
 actual_node = NodePath("..")
 edges = [NodePath("../../../EdgeContainer/Edge0"), NodePath("../../../EdgeContainer/Edge1")]
@@ -102,7 +112,7 @@ polygon = PackedVector2Array(-10.810791, -83.7838, 75.67566, 2.7026978, -10.8107
 [node name="Sprite2D" type="Sprite2D" parent="ActualNodeContainer/Node3" unique_id=825042544]
 texture = ExtResource("3_6yedn")
 
-[node name="Node3" type="Node" parent="ActualNodeContainer/Node3" unique_id=1611269086 node_paths=PackedStringArray("actual_node", "edges")]
+[node name="Node3" type="Node" parent="ActualNodeContainer/Node3" unique_id=107874078 node_paths=PackedStringArray("actual_node", "edges")]
 script = ExtResource("5_dwpg7")
 actual_node = NodePath("..")
 edges = [NodePath("../../../EdgeContainer/Edge1"), NodePath("../../../EdgeContainer/Edge4")]
@@ -121,7 +131,7 @@ polygon = PackedVector2Array(-10.810791, -83.7838, 75.67566, 2.7026978, -10.8107
 [node name="Sprite2D" type="Sprite2D" parent="ActualNodeContainer/Node4" unique_id=933243672]
 texture = ExtResource("3_6yedn")
 
-[node name="Node4" type="Node" parent="ActualNodeContainer/Node4" unique_id=696413512 node_paths=PackedStringArray("actual_node", "edges")]
+[node name="Node4" type="Node" parent="ActualNodeContainer/Node4" unique_id=1286743954 node_paths=PackedStringArray("actual_node", "edges")]
 script = ExtResource("5_dwpg7")
 actual_node = NodePath("..")
 edges = [NodePath("../../../EdgeContainer/Edge2")]
@@ -140,7 +150,7 @@ polygon = PackedVector2Array(-10.810791, -83.7838, 75.67566, 2.7026978, -10.8107
 [node name="Sprite2D" type="Sprite2D" parent="ActualNodeContainer/Node5" unique_id=1116042159]
 texture = ExtResource("3_6yedn")
 
-[node name="Node5" type="Node" parent="ActualNodeContainer/Node5" unique_id=64435269 node_paths=PackedStringArray("actual_node", "edges")]
+[node name="Node5" type="Node" parent="ActualNodeContainer/Node5" unique_id=1221421560 node_paths=PackedStringArray("actual_node", "edges")]
 script = ExtResource("5_dwpg7")
 actual_node = NodePath("..")
 edges = [NodePath("../../../EdgeContainer/Edge2"), NodePath("../../../EdgeContainer/Edge3")]
@@ -159,122 +169,122 @@ polygon = PackedVector2Array(-10.810791, -83.7838, 75.67566, 2.7026978, -10.8107
 [node name="Sprite2D" type="Sprite2D" parent="ActualNodeContainer/Node6" unique_id=741717983]
 texture = ExtResource("3_6yedn")
 
-[node name="Node6" type="Node" parent="ActualNodeContainer/Node6" unique_id=1794373014 node_paths=PackedStringArray("actual_node", "edges")]
+[node name="Node6" type="Node" parent="ActualNodeContainer/Node6" unique_id=351527078 node_paths=PackedStringArray("actual_node", "edges")]
 script = ExtResource("5_dwpg7")
 actual_node = NodePath("..")
 edges = [NodePath("../../../EdgeContainer/Edge3"), NodePath("../../../EdgeContainer/Edge4")]
 
 [node name="EdgeContainer" type="Node2D" parent="." unique_id=247211893]
 
-[node name="Edge0" type="Node" parent="EdgeContainer" unique_id=2057004145 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
+[node name="Edge0" type="Node" parent="EdgeContainer" unique_id=412357111 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
 script = ExtResource("6_6yedn")
-clickable_area = NodePath("@Area2D@85169")
-line = NodePath("@Line2D@85172")
-center_marker = NodePath("@Marker2D@85171")
+clickable_area = NodePath("@Area2D@36267")
+line = NodePath("@Line2D@36270")
+center_marker = NodePath("@Marker2D@36269")
 vertices = [NodePath("../../ActualNodeContainer/Node1/Node1"), NodePath("../../ActualNodeContainer/Node2/Node2")]
 weight = 1.0
 
-[node name="@Area2D@85169" type="Area2D" parent="EdgeContainer/Edge0" unique_id=1604770755]
+[node name="@Area2D@36267" type="Area2D" parent="EdgeContainer/Edge0" unique_id=13161186]
 
-[node name="@CollisionPolygon2D@85170" type="CollisionPolygon2D" parent="EdgeContainer/Edge0/@Area2D@85169" unique_id=1976215246]
-polygon = PackedVector2Array(271.35007, 47.70575, 131.32306, 49.70575, 131.25757, 45.12078, 135.67566, 40.702698, 131.12953, 36.156563, 131.0677, 31.827637, 271.09473, 29.827637)
+[node name="@CollisionPolygon2D@36268" type="CollisionPolygon2D" parent="EdgeContainer/Edge0/@Area2D@36267" unique_id=1188666931]
+polygon = PackedVector2Array(276.00452, 48.698143, 149.9775, 116.69814, 146.36864, 110.00971, 149.67566, 106.7027, 143.07751, 100.10454, 267.51416, 32.962646)
 
-[node name="@Marker2D@85171" type="Marker2D" parent="EdgeContainer/Edge0" unique_id=1148915616]
-position = Vector2(205.68916, 39.702698)
+[node name="@Marker2D@36269" type="Marker2D" parent="EdgeContainer/Edge0" unique_id=1446457971]
+position = Vector2(212.68916, 72.7027)
 
-[node name="@Line2D@85172" type="Line2D" parent="EdgeContainer/Edge0" unique_id=412565616]
+[node name="@Line2D@36270" type="Line2D" parent="EdgeContainer/Edge0" unique_id=1574677300]
 z_index = -1
-points = PackedVector2Array(135.67566, 40.702698, 275.70267, 38.702698)
+points = PackedVector2Array(149.67566, 106.7027, 275.70267, 38.702698)
 width = 4.0
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Edge1" type="Node" parent="EdgeContainer" unique_id=659540703 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
+[node name="Edge1" type="Node" parent="EdgeContainer" unique_id=971482761 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
 script = ExtResource("6_6yedn")
-clickable_area = NodePath("@Area2D@86200")
-line = NodePath("@Line2D@86203")
-center_marker = NodePath("@Marker2D@86202")
+clickable_area = NodePath("@Area2D@36271")
+line = NodePath("@Line2D@36274")
+center_marker = NodePath("@Marker2D@36273")
 vertices = [NodePath("../../ActualNodeContainer/Node2/Node2"), NodePath("../../ActualNodeContainer/Node3/Node3")]
 weight = 1.0
 
-[node name="@Area2D@86200" type="Area2D" parent="EdgeContainer/Edge1" unique_id=1273569698]
+[node name="@Area2D@36271" type="Area2D" parent="EdgeContainer/Edge1" unique_id=1928187202]
 
-[node name="@CollisionPolygon2D@86201" type="CollisionPolygon2D" parent="EdgeContainer/Edge1/@Area2D@86200" unique_id=1267281791]
+[node name="@CollisionPolygon2D@36272" type="CollisionPolygon2D" parent="EdgeContainer/Edge1/@Area2D@36271" unique_id=437223805]
 polygon = PackedVector2Array(556.8778, 49.109985, 553.70795, 66.706696, 442.68103, 46.706696, 443.1225, 44.255875, 448.6757, 38.702698, 444.81778, 34.844788, 445.85083, 29.109985)
 
-[node name="@Marker2D@86202" type="Marker2D" parent="EdgeContainer/Edge1" unique_id=550720790]
+[node name="@Marker2D@36273" type="Marker2D" parent="EdgeContainer/Edge1" unique_id=56121078]
 position = Vector2(504.18915, 48.702698)
 
-[node name="@Line2D@86203" type="Line2D" parent="EdgeContainer/Edge1" unique_id=1646654760]
+[node name="@Line2D@36274" type="Line2D" parent="EdgeContainer/Edge1" unique_id=1532407545]
 z_index = -1
 points = PackedVector2Array(448.6757, 38.702698, 559.70264, 58.702698)
 width = 4.0
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Edge2" type="Node" parent="EdgeContainer" unique_id=366387805 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
+[node name="Edge2" type="Node" parent="EdgeContainer" unique_id=1224173015 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
 script = ExtResource("6_6yedn")
-clickable_area = NodePath("@Area2D@87360")
-line = NodePath("@Line2D@87363")
-center_marker = NodePath("@Marker2D@87362")
+clickable_area = NodePath("@Area2D@36275")
+line = NodePath("@Line2D@36278")
+center_marker = NodePath("@Marker2D@36277")
 vertices = [NodePath("../../ActualNodeContainer/Node4/Node4"), NodePath("../../ActualNodeContainer/Node5/Node5")]
 weight = 1.0
 
-[node name="@Area2D@87360" type="Area2D" parent="EdgeContainer/Edge2" unique_id=671240454]
+[node name="@Area2D@36275" type="Area2D" parent="EdgeContainer/Edge2" unique_id=2026009892]
 
-[node name="@CollisionPolygon2D@87361" type="CollisionPolygon2D" parent="EdgeContainer/Edge2/@Area2D@87360" unique_id=1702729128]
+[node name="@CollisionPolygon2D@36276" type="CollisionPolygon2D" parent="EdgeContainer/Edge2/@Area2D@36275" unique_id=1137054350]
 polygon = PackedVector2Array(938.31305, 582.8289, 938.25006, 587.1553, 933.70264, 591.7027, 938.1195, 596.11957, 938.05273, 600.707, 732.02576, 597.707, 732.2861, 579.8289)
 
-[node name="@Marker2D@87362" type="Marker2D" parent="EdgeContainer/Edge2" unique_id=256447819]
+[node name="@Marker2D@36277" type="Marker2D" parent="EdgeContainer/Edge2" unique_id=1426802355]
 position = Vector2(830.68915, 590.2027)
 
-[node name="@Line2D@87363" type="Line2D" parent="EdgeContainer/Edge2" unique_id=1145721962]
+[node name="@Line2D@36278" type="Line2D" parent="EdgeContainer/Edge2" unique_id=1149430201]
 z_index = -1
 points = PackedVector2Array(933.70264, 591.7027, 727.67566, 588.7027)
 width = 4.0
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Edge3" type="Node" parent="EdgeContainer" unique_id=1427859913 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
+[node name="Edge3" type="Node" parent="EdgeContainer" unique_id=1864763636 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
 script = ExtResource("6_6yedn")
-clickable_area = NodePath("@Area2D@88391")
-line = NodePath("@Line2D@88394")
-center_marker = NodePath("@Marker2D@88393")
+clickable_area = NodePath("@Area2D@36279")
+line = NodePath("@Line2D@36282")
+center_marker = NodePath("@Marker2D@36281")
 vertices = [NodePath("../../ActualNodeContainer/Node5/Node5"), NodePath("../../ActualNodeContainer/Node6/Node6")]
 weight = 1.0
 
-[node name="@Area2D@88391" type="Area2D" parent="EdgeContainer/Edge3" unique_id=437715253]
+[node name="@Area2D@36279" type="Area2D" parent="EdgeContainer/Edge3" unique_id=1112389235]
 
-[node name="@CollisionPolygon2D@88392" type="CollisionPolygon2D" parent="EdgeContainer/Edge3/@Area2D@88391" unique_id=176391351]
+[node name="@CollisionPolygon2D@36280" type="CollisionPolygon2D" parent="EdgeContainer/Edge3/@Area2D@36279" unique_id=1127560840]
 polygon = PackedVector2Array(657.7308, 410.38937, 649.7308, 507.41638, 646.0891, 507.11612, 641.1892, 502.2162, 637.0357, 506.36966, 631.91125, 505.94714, 639.91125, 408.92014)
 
-[node name="@Marker2D@88393" type="Marker2D" parent="EdgeContainer/Edge3" unique_id=1655162039]
+[node name="@Marker2D@36281" type="Marker2D" parent="EdgeContainer/Edge3" unique_id=931040066]
 position = Vector2(645.1892, 453.7027)
 
-[node name="@Line2D@88394" type="Line2D" parent="EdgeContainer/Edge3" unique_id=1713619087]
+[node name="@Line2D@36282" type="Line2D" parent="EdgeContainer/Edge3" unique_id=1025252499]
 z_index = -1
 points = PackedVector2Array(641.1892, 502.2162, 649.1892, 405.18918)
 width = 4.0
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Edge4" type="Node" parent="EdgeContainer" unique_id=1224115120 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
+[node name="Edge4" type="Node" parent="EdgeContainer" unique_id=1992617993 node_paths=PackedStringArray("clickable_area", "line", "center_marker", "vertices")]
 script = ExtResource("6_6yedn")
-clickable_area = NodePath("@Area2D@89293")
-line = NodePath("@Line2D@89296")
-center_marker = NodePath("@Marker2D@89295")
+clickable_area = NodePath("@Area2D@36283")
+line = NodePath("@Line2D@36286")
+center_marker = NodePath("@Marker2D@36285")
 vertices = [NodePath("../../ActualNodeContainer/Node6/Node6"), NodePath("../../ActualNodeContainer/Node3/Node3")]
 weight = 1.0
 
-[node name="@Area2D@89293" type="Area2D" parent="EdgeContainer/Edge4" unique_id=1644580332]
+[node name="@Area2D@36283" type="Area2D" parent="EdgeContainer/Edge4" unique_id=1835047756]
 
-[node name="@CollisionPolygon2D@89294" type="CollisionPolygon2D" parent="EdgeContainer/Edge4/@Area2D@89293" unique_id=905940363]
+[node name="@CollisionPolygon2D@36284" type="CollisionPolygon2D" parent="EdgeContainer/Edge4/@Area2D@36283" unique_id=1902396683]
 polygon = PackedVector2Array(658.27826, 236.38628, 653.5232, 236.5502, 649.1892, 232.2162, 644.5457, 236.85966, 640.40894, 237.00227, 637.40894, 149.97525, 655.27826, 149.35925)
 
-[node name="@Marker2D@89295" type="Marker2D" parent="EdgeContainer/Edge4" unique_id=1324000539]
+[node name="@Marker2D@36285" type="Marker2D" parent="EdgeContainer/Edge4" unique_id=1150816735]
 position = Vector2(647.6892, 188.7027)
 
-[node name="@Line2D@89296" type="Line2D" parent="EdgeContainer/Edge4" unique_id=192325402]
+[node name="@Line2D@36286" type="Line2D" parent="EdgeContainer/Edge4" unique_id=921770223]
 z_index = -1
 points = PackedVector2Array(649.1892, 232.2162, 646.1892, 145.18918)
 width = 4.0

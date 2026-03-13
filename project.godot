@@ -19,6 +19,7 @@ config/icon="uid://vgfi6jmk171l"
 folder_colors={
 "res://Assets/": "purple",
 "res://Graph/": "teal",
+"res://Graph/Graph/GraphBaker/": "blue",
 "res://TestEnvironment/": "orange"
 }
 
