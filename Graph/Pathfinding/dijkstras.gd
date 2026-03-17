@@ -25,7 +25,7 @@ func find_path(start : Vertex, target : Vertex, graph : Graph) -> Array[Vertex]:
 	# set up vars to be reused in the while loop
 	var con_dict : Dictionary[Edge, Vertex]
 	var connected_vertex : Vertex
-	#print('', )
+	
 	while !queue.is_empty():
 		# grab next node & set to be visited
 		curr_vertex = queue.pop_front()

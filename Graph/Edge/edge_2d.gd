@@ -47,8 +47,8 @@ func draw_connection() -> void:
 	#region setting up clickable area
 	clickable_area = Area2D.new()
 	collision_polygon = CollisionPolygon2D.new()
-	add_child(clickable_area)
-	clickable_area.add_child(collision_polygon)
+	add_child(clickable_area, true)
+	clickable_area.add_child(collision_polygon, true)
 	collision_polygon.owner = get_tree().edited_scene_root
 	clickable_area.owner = get_tree().edited_scene_root
 	
@@ -82,14 +82,14 @@ func draw_connection() -> void:
 	#endregion
 	
 	center_marker = Marker2D.new()
-	add_child(center_marker)
+	add_child(center_marker, true)
 	center_marker.owner = get_tree().edited_scene_root
 	center_marker.global_position = (shortest_line[0] + shortest_line[1]) / 2
 	
 	# drawing visual line between start & end
 	line = Line2D.new()
 	line.z_index = -1
-	add_child(line)
+	add_child(line, true)
 	line.add_point(shortest_line[0])
 	line.add_point(shortest_line[1])
 	line.width = VISUAL_LINE_THICKNESS

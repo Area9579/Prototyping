@@ -1,4 +1,3 @@
-@tool
 @abstract class_name Graph extends Node
 ## Abstract class for structure of [Vertex] and [Edge] nodes
 
@@ -11,15 +10,8 @@
 @export var vertices : Array[Vertex]
 @export var edges : Array[Edge]
 
-@abstract func bake_graph() -> void
 @abstract func clear_graph()
 @abstract func generate_graph()
-
-func create_new_graph():
-	# clear graph and wait for all nodes to be freed
-	await clear_graph()
-	# bake new graph
-	bake_graph.call_deferred()
 
 ## Searches for a [Vertex] by a given [String]. Returns null if not found
 func get_vertex_by_name(id : String) -> Vertex:

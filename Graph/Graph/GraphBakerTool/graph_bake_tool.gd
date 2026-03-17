@@ -81,17 +81,13 @@ func bake_graph() -> void:
 	print_rich('[color=light_green]Graph has been baked![/color]')
 
 func update_editor_interface() -> void:
-	print('updating editor interface')
 	for edge in graph.edges:
 		EditorInterface.edit_node(edge)
-		#if edge != null:
-			#EditorInterface.edit_node(edge.center_marker)
 	
 	for vertex in graph.vertices:
 		EditorInterface.edit_node(vertex)
 	
 	EditorInterface.edit_node(graph)
-	print('finished updating editor interface')
 	finished_editing.emit()
 	await get_tree().process_frame
 	return
