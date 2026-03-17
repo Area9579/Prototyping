@@ -79,19 +79,23 @@ func generate_graph() -> void:
 func clear_graph():
 	# free all edges
 	for edge in edge_container.get_children():
-		edge.call_deferred('queue_free')
+		if edge.is_inside_tree():
+			edge.queue_free.call_deferred()
 	
 	# wait for all edges to actually be freed
 	if !edges.is_empty():
-		await edges[0].tree_exited
+		if edges[0].is_queued_for_deletion():
+			await edges[0].tree_exited
 	
 	# free all vertices
 	for vertex in vertices:
-		vertex.call_deferred('queue_free')
+		if vertex.is_inside_tree():
+			vertex.queue_free.call_deferred()
 	
 	# wait for vertices to actually free
 	if !vertices.is_empty():
-		await vertices[0].tree_exited
+		if vertices[0].is_inside_tree():
+			await vertices[0].tree_exited
 	
 	await get_tree().process_frame
 	return 
