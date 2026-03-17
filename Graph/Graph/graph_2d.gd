@@ -1,4 +1,3 @@
-
 class_name Graph2D extends Graph
 
 func generate_graph() -> void:
@@ -53,9 +52,6 @@ func generate_graph() -> void:
 			start_node.add_child(start_vertex)
 			start_vertex.owner = get_tree().edited_scene_root
 			vertices.append(start_vertex)
-			# telling editor to update this node so data is saved to scene
-			#EditorInterface.edit_node(start_vertex)
-			#EditorInterface.edit_node(self)
 		
 		if end_vertex == null:
 			end_vertex = Vertex2D.new().with_data(end_node, end_node.name)
@@ -63,10 +59,6 @@ func generate_graph() -> void:
 			end_node.add_child(end_vertex)
 			end_vertex.owner = get_tree().edited_scene_root
 			vertices.append(end_vertex)
-			# telling editor to update this node so data is saved to scene
-			#EditorInterface.edit_node(end_vertex)
-			#EditorInterface.edit_node(self)
-			
 		
 		# error handling: if connection already exists, don't make another
 		if start_vertex.get_connnected_vertices().has(end_vertex):
@@ -77,7 +69,6 @@ func generate_graph() -> void:
 		id += 1
 		start_vertex.edges.append(new_edge as Edge)
 		end_vertex.edges.append(new_edge as Edge)
-		#vertices.append(new_edge)
 		edges.append(new_edge)
 		edge_container.add_child(new_edge)
 		new_edge.owner = get_tree().edited_scene_root
@@ -85,14 +76,6 @@ func generate_graph() -> void:
 	print('finished generating graph')
 	await get_tree().process_frame
 	return
-		
-		# telling editor to update nodes so data is saved to scene
-		#EditorInterface.edit_node(start_vertex)
-		#EditorInterface.edit_node(end_vertex)
-		#EditorInterface.edit_node(new_edge)
-		#EditorInterface.edit_node(new_edge.center_marker)
-		##EditorInterface.edit_node(new_edge.interaction_handler)
-		#EditorInterface.edit_node(self)
 
 func bake_graph() -> void:
 	var actual_nodes : Array[Node2D]
