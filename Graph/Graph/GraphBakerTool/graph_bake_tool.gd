@@ -5,6 +5,7 @@ class_name GraphBakeTool extends Node
 	set(value):
 		graph = value
 		notify_property_list_changed()
+		update_configuration_warnings()
 
 
 @export_category("Editor Baking")
@@ -46,7 +47,14 @@ func _get(property: StringName) -> Variant:
 	return null
 #endregion
 
-
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings : PackedStringArray = []
+	
+	if graph == null:
+		warnings.append("Please set a graph to bake")
+	
+	return warnings
+		
 ## NOTE: Because tool scripts are silly and don't like running code in a node that exists under the edited
 ## scene root, this function takes the graph you already made, copies its data into a graph that doesn't exist
 ## in the tree yet, and then bakes data using that graph's generated information.
