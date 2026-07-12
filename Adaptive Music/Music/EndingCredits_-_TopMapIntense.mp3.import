@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j0amnnbhmiqu"
+path="res://.godot/imported/EndingCredits_-_TopMapIntense.mp3-8d02fee32fa88e64a42cacad71da6452.mp3str"
+
+[deps]
+
+source_file="res://Adaptive Music/Music/EndingCredits_-_TopMapIntense.mp3"
+dest_files=["res://.godot/imported/EndingCredits_-_TopMapIntense.mp3-8d02fee32fa88e64a42cacad71da6452.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

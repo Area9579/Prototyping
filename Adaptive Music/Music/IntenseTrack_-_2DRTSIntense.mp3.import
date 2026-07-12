@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cl0x84lvwv0of"
+path="res://.godot/imported/IntenseTrack_-_2DRTSIntense.mp3-e22da5f0ae6cff9b1b3f4b4ed5572b65.mp3str"
+
+[deps]
+
+source_file="res://Adaptive Music/Music/IntenseTrack_-_2DRTSIntense.mp3"
+dest_files=["res://.godot/imported/IntenseTrack_-_2DRTSIntense.mp3-e22da5f0ae6cff9b1b3f4b4ed5572b65.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
