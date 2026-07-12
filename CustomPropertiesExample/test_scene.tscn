@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b4m5eho81qf1t"]
+
+[ext_resource type="Script" uid="uid://beioucrxqg356" path="res://CustomPropertiesExample/custom_property_node.gd" id="1_imb8f"]
+
+[node name="TestScene" type="Node2D" unique_id=1140624056]
+
+[node name="CustomPropertyNode" type="Node" parent="." unique_id=1544314203 node_paths=PackedStringArray("node")]
+script = ExtResource("1_imb8f")
+node = NodePath("../DummyNode")
+file = Array[String](["uid://nkfbmql050un", "uid://b4m5eho81qf1t"])
+"Options/Conditional Option" = true
+metadata/_custom_type_script = "uid://beioucrxqg356"
+
+[node name="DummyNode" type="Node" parent="." unique_id=141159290]
