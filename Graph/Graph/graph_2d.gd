@@ -76,6 +76,7 @@ func generate_graph() -> void:
 	await get_tree().process_frame
 	return
 
+
 func clear_graph():
 	# free all edges
 	for edge in edge_container.get_children():
@@ -99,6 +100,7 @@ func clear_graph():
 	
 	await get_tree().process_frame
 	return 
+
 
 ## Returns node in given list that matches by name to an ID
 func get_node_by_name(id : String, nodes : Array[Node2D]) -> Node2D:

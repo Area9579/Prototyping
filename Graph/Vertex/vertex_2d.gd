@@ -1,5 +1,6 @@
 class_name Vertex2D extends Vertex
 
+
 func calc_heuristic(target_vertex : Vertex) -> void:
 	if target_vertex.actual_node is not Node2D:
 		printerr(self, ": Cannot calculate heuristic, target node is not 2D")

@@ -5,6 +5,7 @@ var queue : Array[Vertex]
 var vertices : Array[Vertex]
 var curr_vertex : Vertex
 
+
 func find_path(start : Vertex, target : Vertex, graph : Graph) -> Array[Vertex]:
 	if start == null || target == null:
 		printerr(self, ": Cannot find path between invalid vertices")

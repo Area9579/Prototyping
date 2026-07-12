@@ -11,14 +11,17 @@ var visited : bool = false ## Boolean value to determine if this node has been v
 ## Calculates the heuristic for this node based on position alone
 @abstract func calc_heuristic(target_vertex : Vertex) -> void
 
+
 ## NOTE: This node must be initialized using [method with_data] in order for node to be functional
 func _init() -> void:
 	pass
+
 
 func with_data(connected_node : Node, new_name : String) -> Vertex2D:
 	actual_node = connected_node as Node2D
 	name = new_name
 	return self
+
 
 func get_edges() -> Array[Edge]: 
 	var enabled_edges : Array[Edge]
@@ -26,6 +29,7 @@ func get_edges() -> Array[Edge]:
 		if !edge.disabled:
 			enabled_edges.append(edge)
 	return enabled_edges ## Returns an [Array] of all the edges connected to this vertex
+
 
 ## Returns the [Vertex] objects connected to this [Vertex] by [Edge] objects.
 func get_connnected_vertices() -> Array[Vertex]:
@@ -40,6 +44,7 @@ func get_connnected_vertices() -> Array[Vertex]:
 			else:
 				con_vertices.append(vertex)
 	return con_vertices
+
 
 func get_connection_dict() -> Dictionary[Edge, Vertex]:
 	var con_vertices : Dictionary[Edge, Vertex]

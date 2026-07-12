@@ -22,6 +22,7 @@ func with_data(vertex1 : Vertex, vertex2 : Vertex, edge_weight : float, id : Str
 	draw_connection()
 	return self
 
+
 ## Draws the connection between two vertices located in 2D space and connects [br]
 ## the Area2D to a [InteractionHandler]
 func draw_connection() -> void:
@@ -96,7 +97,7 @@ func draw_connection() -> void:
 	line.end_cap_mode = LINE_CAP_MODE
 	line.begin_cap_mode = LINE_CAP_MODE
 	line.owner = get_tree().edited_scene_root
-	
+
 
 func find_shortest_line(start : PackedVector2Array, end : PackedVector2Array) -> PackedVector2Array:
 	if vertices.is_empty() || weight == null:
@@ -116,6 +117,7 @@ func find_shortest_line(start : PackedVector2Array, end : PackedVector2Array) ->
 	
 	return shortest
 
+
 func transform_to_global_basis(poly : PackedVector2Array, parent_global_transform : Vector2) -> PackedVector2Array:
 	var global_basis_poly : PackedVector2Array
 	for vector2 in poly:
@@ -123,8 +125,6 @@ func transform_to_global_basis(poly : PackedVector2Array, parent_global_transfor
 		global_basis_poly.append(parent_global_transform + vector2)
 	return global_basis_poly
 
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void: 
-	pass
 
 func toggle_enable_state():
 	if disabled:
@@ -133,6 +133,7 @@ func toggle_enable_state():
 		disabled = true
 	
 	match_enable_state()
+
 
 func match_enable_state():
 	if line == null:

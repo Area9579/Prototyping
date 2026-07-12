@@ -13,6 +13,7 @@
 @abstract func clear_graph()
 @abstract func generate_graph()
 
+
 ## Searches for a [Vertex] by a given [String]. Returns null if not found
 func get_vertex_by_name(id : String) -> Vertex:
 	for vertex in vertices:

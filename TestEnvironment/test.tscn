@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://dr12d01rgm03o"
 [node name="GraphBakeTool" type="Node" parent="." unique_id=737912350 node_paths=PackedStringArray("graph")]
 script = ExtResource("7_6guek")
 graph = NodePath("Graph2D")
-"Options/Visible Edges" = true
+"Options/Visible Edges" = false
 metadata/_custom_type_script = "uid://brlgcwkoaqcj5"
 
 [node name="Graph2D" type="Node" parent="GraphBakeTool" unique_id=2038769446 node_paths=PackedStringArray("edge_container", "vertices", "edges")]
@@ -178,6 +178,7 @@ line = NodePath("Line2D")
 center_marker = NodePath("Marker2D")
 vertices = [NodePath("../../ActualNodeContainer/Node1/Node1"), NodePath("../../ActualNodeContainer/Node2/Node2")]
 weight = 1.0
+disabled = null
 
 [node name="Area2D" type="Area2D" parent="EdgeContainer/Edge0" unique_id=960024442]
 
@@ -201,6 +202,7 @@ line = NodePath("Line2D")
 center_marker = NodePath("Marker2D")
 vertices = [NodePath("../../ActualNodeContainer/Node2/Node2"), NodePath("../../ActualNodeContainer/Node3/Node3")]
 weight = 1.0
+disabled = null
 
 [node name="Area2D" type="Area2D" parent="EdgeContainer/Edge1" unique_id=1627216805]
 
@@ -224,6 +226,7 @@ line = NodePath("Line2D")
 center_marker = NodePath("Marker2D")
 vertices = [NodePath("../../ActualNodeContainer/Node4/Node4"), NodePath("../../ActualNodeContainer/Node5/Node5")]
 weight = 1.0
+disabled = null
 
 [node name="Area2D" type="Area2D" parent="EdgeContainer/Edge2" unique_id=316782790]
 
@@ -247,6 +250,7 @@ line = NodePath("Line2D")
 center_marker = NodePath("Marker2D")
 vertices = [NodePath("../../ActualNodeContainer/Node5/Node5"), NodePath("../../ActualNodeContainer/Node6/Node6")]
 weight = 1.0
+disabled = null
 
 [node name="Area2D" type="Area2D" parent="EdgeContainer/Edge3" unique_id=1964129634]
 
@@ -270,6 +274,7 @@ line = NodePath("Line2D")
 center_marker = NodePath("Marker2D")
 vertices = [NodePath("../../ActualNodeContainer/Node6/Node6"), NodePath("../../ActualNodeContainer/Node3/Node3")]
 weight = 1.0
+disabled = null
 
 [node name="Area2D" type="Area2D" parent="EdgeContainer/Edge4" unique_id=261901765]
 

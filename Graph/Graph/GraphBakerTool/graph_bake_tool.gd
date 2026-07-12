@@ -16,6 +16,7 @@ class_name GraphBakeTool extends Node
 # NOTE: This doesn't do anything yet
 var are_edges_visible : bool = true
 
+
 func _get_property_list() -> Array[Dictionary]:
 	var property_list : Array[Dictionary] = []
 	
@@ -26,6 +27,7 @@ func _get_property_list() -> Array[Dictionary]:
 		})
 	
 	return property_list
+
 
 func _set(property: StringName, value: Variant) -> bool:
 	var should_property_be_visible : bool = true
@@ -39,6 +41,7 @@ func _set(property: StringName, value: Variant) -> bool:
 	
 	return should_property_be_visible
 
+
 func _get(property: StringName) -> Variant:
 	match property:
 		"Options/Visible Edges":
@@ -46,6 +49,7 @@ func _get(property: StringName) -> Variant:
 	
 	return null
 #endregion
+
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings : PackedStringArray = []
@@ -90,6 +94,7 @@ func clear_graph():
 	EditorInterface.edit_node(graph)
 	print_rich('[color=light_blue]Graph has been cleared![/color]')
 
+
 func update_editor_interface() -> void:
 	for edge in graph.edges:
 		if edge.is_inside_tree():
@@ -101,6 +106,7 @@ func update_editor_interface() -> void:
 	
 	await get_tree().process_frame
 	return
+
 
 func copy_data_to_new_graph() -> void:
 	if graph == null:
